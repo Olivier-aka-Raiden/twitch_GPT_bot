@@ -13,7 +13,7 @@
 
 ## Usage
 
-Une fois lancé, le bot se connecte sur le chat de tir_a_mistu et écoute tous les messages du tchat.
+Une fois lancé, le bot se connecte sur le chat de {channel-name} et écoute tous les messages du tchat.
 Trigger une réponse du bot : envoyer un message au bot (@BOT_NAME). 
 Pour que le bot réponde, il faut que le message fasse plus de 30 charactères afin d'éviter les appels
 pour rien (ex: "mdr @BOT_NAME", "salut @BOT_NAME" etc.), et il répond que toutes les 20 sec (pour éviter de spam).
