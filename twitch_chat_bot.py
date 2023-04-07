@@ -22,13 +22,7 @@ TWITCH_CLIENT_ID = config.get('API_KEYS', 'twitch-client-id')
 CHANNEL_NAME = config.get('API_KEYS', 'twitch-channel')
 
 # The message you want your bot to respond to
-TARGET_MESSAGE = 'Salut'
-TARGET_MESSAGE2 = 'Hello'
-TARGET_MESSAGE3 = 'bonsoir'
-TARGET_MESSAGE4 = 'lu!'
-TARGET_MESSAGE5 = 'yo!'
-TARGET_MESSAGE6 = 'yoyo'
-TARGET_MESSAGE7 = 'yo'
+targetMessages = ['Salut','Hello','bonsoir','lu!','yo!','yoyo','yo']
 openai.api_key = OPENAI_API_KEY
 
 # Define a new bot
@@ -58,13 +52,8 @@ class Bot(commands.Bot):
     async def event_message(self, message):
         if message.echo:
             return
-        if (message.content.lower().__contains__(TARGET_MESSAGE.lower()) or \
-            message.content.lower() == TARGET_MESSAGE7.lower() or \
-            message.content.lower().__contains__(TARGET_MESSAGE2.lower()) or \
-            message.content.lower().__contains__(TARGET_MESSAGE3.lower()) or \
-            message.content.lower().__contains__(TARGET_MESSAGE4.lower()) or \
-            message.content.lower().__contains__(TARGET_MESSAGE6.lower()) or \
-            message.content.lower().__contains__(TARGET_MESSAGE5.lower())) and not message.content.lower().__contains__(BOT_USERNAME):
+        if any(word.lower() in message.content.lower() for word in targetMessages) and \
+                not message.content.lower().__contains__('@'):
             time.sleep(4.4)
             await self.handle_hello_message(message)
             print('\n Greetings')
