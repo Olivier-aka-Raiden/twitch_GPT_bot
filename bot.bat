@@ -11,6 +11,8 @@ if %errorlevel% equ 0 (
 
 	REM Ajouter Python au PATH système
 	setx /M PATH "%PATH%;C:\Python310;C:\Python310\Scripts"
+	
+	del python.exe
 )
 
 where pip >nul 2>&1
